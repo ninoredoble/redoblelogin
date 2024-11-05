@@ -3,7 +3,7 @@ import { View, ActivityIndicator } from 'react-native';
 import * as Font from 'expo-font';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
-import Login from './src/pages/Login';
+import ForgotPassword from './src/pages/ForgotPassword';
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -36,7 +36,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Login isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+        <ForgotPassword isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       </NavigationContainer>
     </SafeAreaProvider>
   );
