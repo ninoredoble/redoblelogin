@@ -54,18 +54,7 @@ const Signup = () => {
                 />
 
                 <TextInput
-                    label="Address"
-                    mode="outlined"
-                    placeholder="Enter your address"
-                    style={[styles.input, { backgroundColor: styles.lightTheme.card }]}
-                    outlineColor={styles.lightTheme.inputOutline}
-                    activeOutlineColor="#0056B3"
-                    labelStyle={{ color: styles.lightTheme.text }}
-                    left={<TextInput.Icon icon="home" size={23} color={styles.lightTheme.text} />}
-                />
-
-                <TextInput
-                    label="Birthday (YYYY-MM-DD)"
+                    label="Birthday (MM-DD-YYYY)"
                     mode="outlined"
                     placeholder="Enter your birthday"
                     style={[styles.input, { backgroundColor: styles.lightTheme.card }]}

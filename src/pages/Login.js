@@ -12,7 +12,6 @@ const Login = ({ isDarkMode, toggleTheme }) => {
         <View style={[styles.container, { backgroundColor: currentTheme.background }]}>
             <TouchableOpacity 
                 onPress={toggleTheme}
-                style={{ position: 'absolute', top: 100, right: 25 }}
             >
                 <Icon 
                     name={isDarkMode ? "sun-o" : "moon-o"} 
