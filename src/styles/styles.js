@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
         height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5F5F5',
+        backgroundColor: '#F9F9F9',
     },
     section: {
         width: '100%',
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 12,
         fontSize: 15,
         paddingVertical: 5,
+        color: 'white',
     },
     button: {
         marginBottom: 10,

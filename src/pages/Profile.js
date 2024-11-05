@@ -54,22 +54,6 @@ const Profile = ({ isDarkMode, toggleTheme }) => {
     });
   };
 
-  // Function to toggle between dark and light modes with animation
-  const toggleDarkMode = () => {
-    Animated.timing(darkModeScale, {
-      toValue: 1.2,
-      duration: 200,
-      useNativeDriver: true,
-    }).start(() => {
-      toggleTheme(); // Invoke theme toggle function passed as a prop
-      Animated.spring(darkModeScale, {
-        toValue: 1,
-        friction: 3,
-        useNativeDriver: true,
-      }).start();
-    });
-  };
-
   // Function to handle sign out with animation
   const handleSignOut = () => {
     Animated.timing(signOutScale, {
@@ -182,9 +166,9 @@ const Profile = ({ isDarkMode, toggleTheme }) => {
         <Text style={[styles.label, { color: currentTheme.text }]}>
           {isDarkMode ? "Light Mode" : "Dark Mode"}
         </Text>
-        <TouchableOpacity onPress={toggleDarkMode}>
+        <TouchableOpacity onPress={toggleTheme}>
           <Animated.View style={{ transform: [{ scale: darkModeScale }] }}>
-            <Icon name={isDarkMode ? "sun-o" : "moon-o"} size={26} color={isDarkMode ? '#F4C430' : currentTheme.text} />
+            <Icon name={isDarkMode ? "sun-o" : "moon-o"} size={26} color={currentTheme.text} />
           </Animated.View>
         </TouchableOpacity>
       </View>
@@ -266,38 +250,39 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
-    shadowRadius: 3,
+    shadowRadius: 6,
   },
   label: {
     fontSize: 18,
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins-Medium',
   },
   button: {
-    marginTop: 20,
     flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 8,
-    elevation: 2,
+    width: '90%',
+    padding: 15,
+    borderRadius: 12,
+    marginTop: 20,
   },
   buttonText: {
-    fontSize: 16,
     marginLeft: 10,
-    fontFamily: 'Poppins-Regular',
-  },
-  firstName: {
-    fontSize: 22,
-    fontFamily: 'Poppins-Regular',
-    marginBottom: -5,
-  },
-  surname: {
-    fontSize: 30,
-    fontFamily: 'Poppins-Bold',
+    fontSize: 18,
+    fontFamily: 'Poppins-Medium',
   },
   joinDate: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: 'Poppins-Regular',
+    color: '#888', // A lighter shade for the joined date
+  },
+  firstName: {
+    fontSize: 24,
+    fontFamily: 'Poppins-Bold',
+  },
+  surname: {
+    fontSize: 24,
+    fontFamily: 'Poppins-Bold',
+    marginTop: -5,
   },
 });
 

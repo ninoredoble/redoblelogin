@@ -1,14 +1,46 @@
-import { View } from "react-native";
+import React, { useState } from "react";
+import { View, TouchableOpacity } from "react-native";
 import { Avatar, Text, TextInput, Button } from "react-native-paper";
+import Icon from "react-native-vector-icons/FontAwesome";
 import styles from "../styles/styles";
-import { useState } from "react";
 
-const Login = () => {
+const lightTheme = {
+    background: '#F9F9F9',
+    text: '#000',
+    buttonBackground: '#0056B3',
+    inputOutline: '#A0A0A0',
+    card: '#FFFFFF',
+    inputText: '#000',
+};
+
+const darkTheme = {
+    background: '#1C1C1E',
+    text: '#FFF',
+    buttonBackground: '#0056B3',
+    inputOutline: '#A0A0A0',
+    card: '#2C2C2E',
+    inputText: '#A9A9A9',
+    placeholderText: '#A0A0A0',
+};
+
+const Login = ({ isDarkMode, toggleTheme }) => {
     const [togglePassword, setTogglePassword] = useState(false);
+    const currentTheme = isDarkMode ? darkTheme : lightTheme;
 
     return (
-        <View style={styles.container}>
-            <View style={[styles.section, styles.logoBox, ]}>
+        <View style={[styles.container, { backgroundColor: currentTheme.background }]}>
+            <TouchableOpacity 
+                onPress={toggleTheme}
+                style={{ position: 'absolute', top: 100, right: 25 }}
+            >
+                <Icon 
+                    name={isDarkMode ? "sun-o" : "moon-o"} 
+                    size={30} 
+                    color={currentTheme.text} 
+                />
+            </TouchableOpacity>
+
+            <View style={[styles.section, styles.logoBox]}>
                 <Avatar.Image
                     style={{ backgroundColor: "transparent" }}
                     size={250}
@@ -22,28 +54,36 @@ const Login = () => {
                     label="Email"
                     mode="outlined"
                     placeholder="Enter your email"
-                    style={styles.input}
-                    outlineColor="#A0A0A0"
-                    activeOutlineColor="#0056B3" 
-                    left={<TextInput.Icon icon="email" size={23} />}
+                    placeholderTextColor={currentTheme.placeholderText}
+                    style={[styles.input, { backgroundColor: currentTheme.card }]}
+                    outlineColor={currentTheme.inputOutline}
+                    activeOutlineColor="#0056B3"
+                    labelStyle={{ color: currentTheme.text }}
+                    left={<TextInput.Icon icon="email" size={23} color={currentTheme.text} />}
+                    secureTextEntry={false}
+                    theme={{ colors: { text: currentTheme.inputText, placeholder: currentTheme.placeholderText } }}
                 />
 
                 <TextInput
                     label="Password"
                     mode="outlined"
                     placeholder="Enter your password"
-                    style={styles.input}
-                    outlineColor="#A0A0A0" 
+                    placeholderTextColor={currentTheme.placeholderText}
+                    style={[styles.input, { backgroundColor: currentTheme.card }]}
+                    outlineColor={currentTheme.inputOutline} 
                     activeOutlineColor="#0056B3"
-                    left={<TextInput.Icon icon="key" size={23} />}
+                    labelStyle={{ color: currentTheme.text }}
+                    left={<TextInput.Icon icon="key" size={23} color={currentTheme.text} />}
                     right={
                         <TextInput.Icon
                             onPress={() => setTogglePassword(!togglePassword)}
                             icon={togglePassword ? "eye" : "eye-off"}
                             size={23}
+                            color={currentTheme.text}
                         />
                     }   
                     secureTextEntry={!togglePassword}
+                    theme={{ colors: { text: currentTheme.inputText, placeholder: currentTheme.placeholderText } }}
                 />
             </View>
 
@@ -51,14 +91,14 @@ const Login = () => {
                 <Button
                     onPress={() => console.log("login")}
                     mode="contained"
-                    style={[styles.button, { backgroundColor: '#0056B3' }]} 
+                    style={[styles.button, { backgroundColor: currentTheme.buttonBackground }]} 
                     labelStyle={styles.buttonText}
                 >
                     Login
                 </Button>
                 
                 <View style={{ alignItems: "center", justifyContent: "center", marginVertical: 20 }}>
-                    <Text style={styles.centeredText}>Don't have an account yet?</Text>
+                    <Text style={[styles.centeredText, { color: currentTheme.text }]}>Don't have an account yet?</Text>
                 </View>
                 
                 <Button
@@ -78,7 +118,6 @@ const Login = () => {
                 >
                     Forgot Password?
                 </Button>
-
             </View>
         </View>
     );
