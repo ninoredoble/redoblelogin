@@ -4,28 +4,9 @@ import { Avatar, Text, TextInput, Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/FontAwesome";
 import styles from "../styles/styles";
 
-const lightTheme = {
-    background: '#F9F9F9',
-    text: '#000',
-    buttonBackground: '#0056B3',
-    inputOutline: '#A0A0A0',
-    card: '#FFFFFF',
-    inputText: '#000',
-};
-
-const darkTheme = {
-    background: '#1C1C1E',
-    text: '#FFF',
-    buttonBackground: '#0056B3',
-    inputOutline: '#A0A0A0',
-    card: '#2C2C2E',
-    inputText: '#A9A9A9',
-    placeholderText: '#A0A0A0',
-};
-
 const Login = ({ isDarkMode, toggleTheme }) => {
     const [togglePassword, setTogglePassword] = useState(false);
-    const currentTheme = isDarkMode ? darkTheme : lightTheme;
+    const currentTheme = isDarkMode ? styles.darkTheme : styles.lightTheme;
 
     return (
         <View style={[styles.container, { backgroundColor: currentTheme.background }]}>

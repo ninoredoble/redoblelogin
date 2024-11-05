@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
         height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F9F9F9',
     },
     section: {
         width: '100%',
@@ -20,7 +19,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 12,
         fontSize: 15,
         paddingVertical: 5,
-        color: 'white',
     },
     button: {
         marginBottom: 10,
@@ -42,6 +40,23 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#2b3244',
         textAlign: 'center',
+    },
+    lightTheme: {
+        background: '#F9F9F9',
+        text: '#000',
+        buttonBackground: '#0056B3',
+        inputOutline: '#A0A0A0',
+        card: '#FFFFFF',
+        inputText: '#000',
+    },
+    darkTheme: {
+        background: '#1C1C1E',
+        text: '#FFF',
+        buttonBackground: '#0056B3',
+        inputOutline: '#A0A0A0',
+        card: '#2C2C2E',
+        inputText: '#A9A9A9',
+        placeholderText: '#A0A0A0',
     },
 });
 

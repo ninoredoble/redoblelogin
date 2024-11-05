@@ -224,6 +224,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Regular',
   },
   sectionHeader: {
+    marginTop: 30,
     fontSize: 22,
     fontFamily: 'Poppins-Bold',
     marginVertical: 10,
