@@ -4,7 +4,8 @@ import * as Font from 'expo-font';
 import { useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
-import Profile from './src/pages/Profile';
+import Login from './src/pages/Login';
+
 
 export default function App() {
   // State to track if custom fonts are loaded
@@ -51,7 +52,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Profile isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+        <Login/>
       </NavigationContainer>
     </SafeAreaProvider>
   );
